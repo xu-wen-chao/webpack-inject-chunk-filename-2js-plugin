@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 const basic = () => console.log('basic')
 
-console.log('JsWebpackInlineSourcePluginTag')
+console.log('WebpackInjectChunkManifestAssetsPluginTag')
 
 Vue.prototype.$test = basic
 window.$example = window.$example || {}

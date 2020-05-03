@@ -15,14 +15,17 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new Plugin({
-      app: [
-        {
-          regex: /JsWebpackInlineSourcePluginTag/,
-          chunkName: 'vendors'
-        }
-      ]
-    })
+    new Plugin([
+      {
+        targetChunk: 'app',
+        rules: [
+          {
+            regex: /WebpackInjectChunkManifestAssetsPluginTag/,
+            injectChunk: 'vendors'
+          }
+        ]
+      }
+    ])
   ],
   optimization: {
     splitChunks: {
@@ -34,7 +37,7 @@ module.exports = {
         vendors: {
           name: 'vendors',
           test: /[\\/]node_modules[\\/]/,
-          filename: 'vendors/vendors.[hash].js'
+          filename: 'vendors.[hash].js'
         }
       }
     }

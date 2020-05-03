@@ -1,20 +1,24 @@
-const PluginName = 'JsWebpackInlineSourcePlugin'
+const PluginName = 'WebpackInjectChunkManifestAssetsPlugin'
 
 class Plugin {
-  constructor(targets) {
-    this.targets = targets
+  constructor(options) {
+    this.options = options
   }
   apply(compiler) {
     compiler.hooks.emit.tapAsync(PluginName, (compilation, callback) => {
-      Object.keys(this.targets).forEach((key) => {
-        this.targets[key].forEach((options) => {
-          const targetFilename = compilation.namedChunks.get(key).files[0]
-          const chunkFilename = compilation.namedChunks.get(options.chunkName).files[0]
+      this.options.forEach((option) => {
+        const { targetChunk, rules } = option
+        const { namedChunks } = compilation
 
-          let content = compilation.assets[targetFilename].source()
-          content = content.replace(options.regex, chunkFilename)
+        rules.forEach((rule) => {
+          const { regex, injectChunk } = rule
+          const targetChunkFilename = namedChunks.get(targetChunk).files[0]
+          const injectChunkFilename = namedChunks.get(injectChunk).files[0]
 
-          compilation.assets[targetFilename] = {
+          let content = compilation.assets[targetChunkFilename].source()
+          content = content.replace(regex, injectChunkFilename)
+
+          compilation.assets[targetChunkFilename] = {
             source() {
               return content
             },
