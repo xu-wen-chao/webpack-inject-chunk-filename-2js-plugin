@@ -1,4 +1,4 @@
-const PluginName = 'WebpackInjectChunkManifestAssetsPlugin'
+const PluginName = 'WebpackInjectChunkFilename2JsPlugin'
 
 class Plugin {
   constructor(options) {

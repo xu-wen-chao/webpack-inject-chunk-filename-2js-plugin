@@ -1,5 +1,5 @@
 {
-  "name": "webpack-inject-chunk-manifest-assets-plugin",
+  "name": "webpack-inject-chunk-filename-2js-plugin",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

@@ -19,7 +19,7 @@ module.exports = {
         targetChunk: 'app',
         rules: [
           {
-            regex: /WebpackInjectChunkManifestAssetsPluginTag/,
+            regex: /inject-tag-lib/,
             injectChunk: 'lib'
           }
         ]

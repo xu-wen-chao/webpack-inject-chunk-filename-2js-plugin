@@ -5,4 +5,4 @@ const basic = () => console.log('basic')
 basic()
 lib()
 
-console.log('WebpackInjectChunkManifestAssetsPluginTag')
+console.log('inject-tag-lib')
