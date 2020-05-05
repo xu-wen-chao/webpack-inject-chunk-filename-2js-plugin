@@ -7,7 +7,6 @@ module.exports = {
   entry: {
     app: './example.js'
   },
-  // mode: 'development',
   output: {
     libraryTarget: 'umd',
     path: path.resolve(__dirname, './dist'),
@@ -21,7 +20,7 @@ module.exports = {
         rules: [
           {
             regex: /WebpackInjectChunkManifestAssetsPluginTag/,
-            injectChunk: 'vendors'
+            injectChunk: 'lib'
           }
         ]
       }
@@ -30,14 +29,15 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
+      minSize: 0,
       maxSize: 0,
       minChunks: 1,
       name: false,
       cacheGroups: {
-        vendors: {
-          name: 'vendors',
-          test: /[\\/]node_modules[\\/]/,
-          filename: 'vendors.[hash].js'
+        lib: {
+          name: 'lib',
+          test: /lib/,
+          filename: 'lib.[hash:8].js'
         }
       }
     }

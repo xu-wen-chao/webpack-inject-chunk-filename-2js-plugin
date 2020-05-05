@@ -1,9 +1,8 @@
-import Vue from 'vue'
+import lib from './lib'
 
 const basic = () => console.log('basic')
 
-console.log('WebpackInjectChunkManifestAssetsPluginTag')
+basic()
+lib()
 
-Vue.prototype.$test = basic
-window.$example = window.$example || {}
-window.$example.basic = basic
+console.log('WebpackInjectChunkManifestAssetsPluginTag')

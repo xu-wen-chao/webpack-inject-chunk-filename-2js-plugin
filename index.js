@@ -5,13 +5,17 @@ class Plugin {
     this.options = options
   }
   apply(compiler) {
-    compiler.hooks.emit.tapAsync(PluginName, (compilation, callback) => {
+    compiler.hooks.emit.tap(PluginName, (compilation) => {
       this.options.forEach((option) => {
         const { targetChunk, rules } = option
         const { namedChunks } = compilation
 
         rules.forEach((rule) => {
           const { regex, injectChunk } = rule
+          
+          if (!namedChunks.has(targetChunk)) throw new Error(`targetChunk ${targetChunk} does not exist`)
+          if (!namedChunks.has(injectChunk)) throw new Error(`injectChunk ${injectChunk} does not exist`)
+
           const targetChunkFilename = namedChunks.get(targetChunk).files[0]
           const injectChunkFilename = namedChunks.get(injectChunk).files[0]
 
@@ -28,8 +32,6 @@ class Plugin {
           }
         })
       })
-
-      callback()
     })
   }
 }
