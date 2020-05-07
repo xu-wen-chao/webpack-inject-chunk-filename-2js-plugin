@@ -50,9 +50,10 @@ class Plugin {
               )
             }
             filename = path.basename(filename)
-            const content = compilation.assets[filename] || fs
-              .readFileSync(entry, { encoding: 'utf-8' })
-              .replace(regex, injectChunkFilename)
+            let content = compilation.assets[filename]
+              ? compilation.assets[filename].source()
+              : fs.readFileSync(entry, { encoding: 'utf-8' })
+            content = content.replace(regex, injectChunkFilename)
             compilation.assets[filename] = {
               source: () => content,
               size: () => content.length
