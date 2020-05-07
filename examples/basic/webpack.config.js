@@ -1,6 +1,10 @@
 const path = require('path')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const Plugin = require('../../index')
+const fs = require('fs-extra')
+const resolve = (src) => path.resolve(__dirname, src)
+const dist = resolve('./dist')
+
+fs.removeSync(dist)
 
 module.exports = {
   context: __dirname,
@@ -9,11 +13,10 @@ module.exports = {
   },
   output: {
     libraryTarget: 'umd',
-    path: path.resolve(__dirname, './dist'),
+    path: dist,
     filename: 'bundle.js'
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new Plugin([
       {
         targetChunk: 'app',
