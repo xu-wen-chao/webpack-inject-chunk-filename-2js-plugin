@@ -49,10 +49,11 @@ class Plugin {
                 match.replace($1, hash.substring(0, +length))
               )
             }
-            const content = fs
+            filename = path.basename(filename)
+            const content = compilation.assets[filename] || fs
               .readFileSync(entry, { encoding: 'utf-8' })
               .replace(regex, injectChunkFilename)
-            compilation.assets[path.basename(filename)] = {
+            compilation.assets[filename] = {
               source: () => content,
               size: () => content.length
             }
