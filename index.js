@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const PluginName = 'WebpackInjectChunkFilename2JsPlugin'
+const PluginName = 'WebpackInjectChunkFilenamePlugin'
 
 class Plugin {
   constructor(options) {
