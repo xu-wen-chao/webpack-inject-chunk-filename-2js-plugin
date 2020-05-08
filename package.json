@@ -3,6 +3,7 @@
   "version": "1.0.3",
   "description": "",
   "main": "index.js",
+  "files": ["index.js"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:basic": "webpack --config ./examples/basic/webpack.config.js",
