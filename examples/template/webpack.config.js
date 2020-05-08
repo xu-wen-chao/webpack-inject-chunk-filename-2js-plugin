@@ -25,11 +25,36 @@ module.exports = {
         },
         rules: [
           {
-            regex: /inject-tag-app/,
-            injectChunk: 'app'
+            regex: /inject-tag-lib1/,
+            injectChunk: 'lib1'
+          },
+          {
+            regex: /inject-tag-lib2/,
+            injectChunk: 'lib2'
           }
         ]
       }
     ])
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 0,
+      maxSize: 0,
+      minChunks: 1,
+      name: false,
+      cacheGroups: {
+        lib1: {
+          name: 'lib1',
+          test: /lib1/,
+          filename: 'lib1.[hash:8].js'
+        },
+        lib2: {
+          name: 'lib2',
+          test: /lib2/,
+          filename: 'lib2.[hash:8].js'
+        }
+      }
+    }
+  }
 }
