@@ -2,7 +2,7 @@
 
 Webpack Plugin that injects chunks filename to outputs or any files you define.
 
-## Instill
+## Install
 
 `npm i webpack-inject-chunk-filename-plugin -D`
 
