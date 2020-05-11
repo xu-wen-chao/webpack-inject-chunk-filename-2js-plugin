@@ -18,7 +18,6 @@
   "homepage": "https://github.com/xu-wen-chao/webpack-inject-chunk-filename-plugin",
   "repository": "https://github.com/xu-wen-chao/webpack-inject-chunk-filename-plugin.git",
   "devDependencies": {
-    "clean-webpack-plugin": "^3.0.0",
     "fs-extra": "^9.0.0",
     "npm-run-all": "^4.1.5",
     "webpack": "^4.43.0",
