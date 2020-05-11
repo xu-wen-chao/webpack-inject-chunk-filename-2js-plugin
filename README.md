@@ -14,14 +14,14 @@ Inject chunks filename to outputs. you should make sure each chunks have name, s
 
 Suppose you have two chunks, `app` and `lib`. You want to inject chunk `lib`'s output filename to chunk `app`'s output source.
 
-1. Add a placeholder such as `inject-tag-lib` in `app` chunk's source file.
+- Add a placeholder such as `inject-tag-lib` in `app` chunk's source file.
 
 ```js
 import lib from './lib'
 console.log('inject-tag-lib')
 ```
 
-2. Configure plugin
+- Configure plugin
 
 ```js
 const InjectChunkFilenamePlugin = require('webpack-inject-chunk-filename-plugin')
@@ -65,7 +65,7 @@ module.exports = {
 }
 ```
 
-3. Build and see what you got
+- Build and see what you got
 
 In chunk `app`'s output source, `inject-tag-lib` will be replaced will `lib.51be9832.js`
 
