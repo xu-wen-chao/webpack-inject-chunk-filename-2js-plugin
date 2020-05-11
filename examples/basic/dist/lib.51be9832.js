@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],[function(o,n,s){"use strict";n.a=()=>console.log("I am lib")}]]);

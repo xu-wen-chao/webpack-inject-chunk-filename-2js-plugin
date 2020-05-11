@@ -1,7 +1,8 @@
 {
   "name": "webpack-inject-chunk-filename-plugin",
   "version": "1.0.4",
-  "description": "",
+  "description": "Webpack Plugin that injects chunks filename to outputs or any files you define.",
+  "author": "xuwenchao",
   "main": "index.js",
   "files": [
     "index.js"
@@ -12,8 +13,10 @@
     "build:basic": "webpack --config ./examples/basic/webpack.config.js",
     "build:template": "webpack --config ./examples/template/webpack.config.js"
   },
-  "author": "xuwenchao",
   "license": "ISC",
+  "bugs": "https://github.com/xu-wen-chao/webpack-inject-chunk-filename-plugin/issues",
+  "homepage": "https://github.com/xu-wen-chao/webpack-inject-chunk-filename-plugin",
+  "repository": "https://github.com/xu-wen-chao/webpack-inject-chunk-filename-plugin.git",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "fs-extra": "^9.0.0",

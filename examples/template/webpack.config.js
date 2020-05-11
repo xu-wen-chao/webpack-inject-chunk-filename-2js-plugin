@@ -21,7 +21,7 @@ module.exports = {
       {
         targetTemplate: {
           entry: resolve('./template.js'),
-          filename: 'dd/template.[hash:8].js'
+          filename: 'template.[hash:8].js'
         },
         rules: [
           {
@@ -40,9 +40,6 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
       minSize: 0,
-      maxSize: 0,
-      minChunks: 1,
-      name: false,
       cacheGroups: {
         lib1: {
           name: 'lib1',

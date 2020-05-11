@@ -33,9 +33,6 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
       minSize: 0,
-      maxSize: 0,
-      minChunks: 1,
-      name: false,
       cacheGroups: {
         lib: {
           name: 'lib',
