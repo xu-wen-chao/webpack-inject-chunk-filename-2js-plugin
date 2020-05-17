@@ -10,18 +10,18 @@ Webpack Plugin that injects chunks filename to outputs or any files you define.
 
 ### Inject chunks to another chunk
 
-Inject chunks filename to outputs. you should make sure each chunks have name, so that the plugin can find it.
+Inject chunk's filename to outputs. you should make sure each chunks have name, so that the plugin can find it.
 
 Suppose you have two chunks, `app` and `lib`. You want to inject chunk `lib`'s output filename to chunk `app`'s output source.
 
-- Add a placeholder such as `inject-tag-lib` in `app` chunk's source file.
+First, add a placeholder such as `inject-tag-lib` in chunk `app`'s source file
 
 ```js
 import lib from './lib'
 console.log('inject-tag-lib')
 ```
 
-- Configure plugin
+Second, configure plugin
 
 ```js
 const InjectChunkFilenamePlugin = require('webpack-inject-chunk-filename-plugin')
@@ -37,7 +37,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-    new InjectChunkFilenamePlugin([
+    new InjectChunkFilenamePlugin([ // configure plugin here
       {
         targetChunk: 'app',
         rules: [
@@ -49,7 +49,7 @@ module.exports = {
       }
     ])
   ],
-  optimization: {
+  optimization: { // your split chunks
     splitChunks: {
       chunks: 'all',
       minSize: 0,
@@ -65,7 +65,7 @@ module.exports = {
 }
 ```
 
-- Build and see what you got
+Last, build and see what you got
 
 In chunk `app`'s output source, `inject-tag-lib` will be replaced will `lib.51be9832.js`
 
