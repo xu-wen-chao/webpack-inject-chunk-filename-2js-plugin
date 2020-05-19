@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "targetChunk": {
+      "type": "string"
+    },
+    "targetTemplate": {
+      "properties": {
+        "entry": { "type": "string", "absolutePath": true },
+        "filename": { "type": "string" }
+      }
+    },
+    "rules": {
+      "items": [
+        {
+          "properties": {
+            "regex": { "instanceof": "RegExp" },
+            "injectChunk": { "type": "string" }
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}
