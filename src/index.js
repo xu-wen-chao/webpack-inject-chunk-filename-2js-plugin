@@ -1,7 +1,7 @@
+const validate = require('schema-utils')
 const path = require('path')
 const fs = require('fs')
 const schema = require('./schema.json')
-const validate = require('schema-utils')
 const PluginName = 'WebpackInjectChunkFilenamePlugin'
 
 class Plugin {

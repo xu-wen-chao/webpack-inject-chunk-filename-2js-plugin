@@ -1,5 +1,5 @@
 const path = require('path')
-const Plugin = require('../../index')
+const Plugin = require('../../src/index')
 const fs = require('fs-extra')
 const resolve = (src) => path.resolve(__dirname, src)
 const dist = resolve('./dist')
@@ -7,6 +7,7 @@ const dist = resolve('./dist')
 fs.removeSync(dist)
 
 module.exports = {
+  mode: 'development',
   context: __dirname,
   entry: {
     app: './example.js'
